@@ -1,0 +1,85 @@
+/* Global */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* body {
+  margin: 0px;
+  padding: 0px;
+} */
+
+#page-top {
+  display: flex;
+}
+
+/* ################################### Sidebar ################################### */
+
+#sidebar {
+  background-color: rgba(200,60,60);
+  width: 300px;
+  height: 960px;
+}
+
+#personal-profile {
+  height: 200px;
+  padding: 15px;
+}
+
+/*
+#profile-pic {
+  height: 150px;
+  width: 150px;
+  margin: auto;
+}
+
+#profile-img {
+  border-radius: 50%;
+}
+*/
+
+#profile-pic {
+  width: 100px; 
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden; /* Hide overflow to maintain the circular shape */
+}
+
+#profile-img {
+  width: 100%; /* Make the image fill the circular container */
+  height: 100%; /* Make the image fill the circular container */
+  object-fit: cover; /* Maintain the aspect ratio */
+  transform: scale(0.8); /* Adjust the scale factor for the zoom-out effect */
+}
+
+#personal-name,
+#career-title {
+  text-align: center;
+  margin-top: 7px;
+  color: white;
+}
+
+#nav-links {
+  background-color: white;
+}
+
+#nav-links li {
+  /* background-color: black; */
+  text-align: center;
+  list-style: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ################################### Content ################################### */
+
+#content {
+  background-color: rgba(180,180,180);
+  /* width: 1000px; */
+  flex: 1;
+  height: 960px;
+}
