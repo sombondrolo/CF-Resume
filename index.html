@@ -1,16 +1,315 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>live-server</title>
 
-  <link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Fer Candia | Ruby on Rails Developer</title>
+  <link rel="stylesheet" href="index.css" />
+  <script src="index.js"></script>
 </head>
 
 <body>
-  <h1>
-    hola
-  </h1>
+  <div id="page-top">
+    <!-- Left Sidebar -->
+    <div id="sidebar">
+      <div id="personal-profile">
+        <div id="profile-pic">
+          <img src="rails_sq.png"id="profile-img">
+        </div>
+        <div id="personal-name"><strong>Fer Candia</strong></div>
+        <div id="career-title"></strong>Ruby on Rails Developer</strong></div>
+      </div>
 
-  <script src="script.js"></script>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="#home" onclick="showSection('home')">Home</a></li>
+          <li><a href="#about" onclick="showSection('about')">About me</a></li>
+          <li><a href="#experience" onclick="showSection('experience')">Work experience</a></li>
+          <li><a href="#portfolio" onclick="showSection('portfolio')">Personal portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Right Main -->
+    <main id="content">
+      <section id="home" class="section" data-section="home">
+        <div id="home-wr1">
+          <h1 class="h1-header">#home</h1>
+
+          <div id="home-2">
+            <p>espacio para home</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section" data-section="about">
+        <h1 class="h1-header">#about</h1>
+        
+        <p>Some personal information</p>
+      </section>
+
+      <!-- -------------------- Experience -------------------- -->
+      <section id="experience" class="section" data-section="experience">
+        <h1 class="h1-header">#experience</h1>
+
+        <ul>
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://www.agrobikes.com.ar" target="_blank">
+                  <img src="assets/images/agrobikes.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Agrobikes</h3>
+                <div class="">
+                  <span class="underline">Agosto-Septiembre 2023:</span>
+                  <span class="ml-5">Fix RRHH form desde panel Sendgrid</span>
+                </div>
+                <div class="">
+                  <span class="underline">Marzo 2023:</span>
+                  <span class="ml-5">Link Defensa Consumidor -</span>
+                  <span>Resizeo de imgs desde el admin panel -</span>
+                  <span>Fix al :hover active selector</span>
+                </div>
+                <div class="">
+                  <span class="underline">Diciembre 2022:</span>
+                  <span class="ml-5">Fix para Safari y media-querys -</span>
+                  <span>Tamaños de logos en home</span>
+                </div>
+                <div class="">
+                  <span class="underline">Septiembre 2021:</span>
+                  <span class="ml-5">Agregado de links y React component</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://www.delsurleather.com" target="_blank">
+                  <img src="assets/images/delsurleather.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Delsurleather</h3>
+                <div class="">
+                  <span class="underline">Agosto 2023:</span>
+                  <span class="ml-5">Link ICP y dokku ps:scale web=1</span>
+                </div>
+                <div class="">
+                  <span class="underline">Mayo 2023:</span>
+                  <span class="ml-5">CVE security fix y update system, Docker y Dokku</span>
+                </div>
+                <div class="">
+                  <span class="underline">Dic-Feb-Marzo 2023:</span>
+                  <span class="ml-5">Diagnóstico del problema de indexación de Google -</span>
+                  <span>Instalación de certificados SSL</span>
+                </div>
+                <div class="">
+                  <span class="underline">Octubre-Noviembre 2021:</span>
+                  <span class="ml-5">Asistencia en instalación en Alibaba Cloud</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://www.suzukiagronomia.com.ar" target="_blank">
+                  <img src="assets/images/suzukiagronomia.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Suzuki Agronomía</h3>
+                <div class="">
+                  <span class="underline">Marzo-Abril 2023:</span>
+                  <span class="ml-5">Ajustes a la galería de imgs en la home -</span>
+                  <span>Fix de selector de colores de la moto</span>
+                </div>
+                <div class="">
+                  <span class="underline">Noviembre-Diciembre 2021:</span>
+                  <span class="ml-5">Montaje de proyecto</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://scombro.com.ar" target="_blank">
+                  <img src="assets/images/scombro.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3>Scombro</h3>
+                <div class="">
+                  <span class="underline">Agosto-Septiembre 2023:</span>
+                  <span class="ml-5">Asistencia en migración de hosting</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://www.greeninteractivo.com" target="_blank">
+                  <img src="assets/images/greeninteractivo.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Green Interactivo</h3>
+                <div class="">
+                  <span class="underline">Septiembre 2023:</span>
+                  <span class="ml-5">Diagnóstico de error en envío de formularios</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://www.xpsacabollos.com.ar" target="_blank">
+                  <img src="assets/images/xpsacabollos.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">xpsacabollos</h3>
+                <div class="">
+                  <span class="underline">Enero-Marzo-Abril 2023:</span>
+                  <span class="ml-5">Ajustes en la homepage</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!--
+          <li>
+            <div class="img-text-container mt-20">
+              <div id="pro-exp-img"></div>
+              <div class="text-container">
+                <div class="">Residencia Roma</div>
+                <div class="">https://web-service-staging-residencia.onrender.com</div>
+                <div class="">Agosto 2022</div>
+                <div class="">Proyecto discontinuado</div>
+              </div>
+            </div>
+          </li>
+          -->
+        </ul>
+      </section>
+
+      <!-- -------------------- Portfolio -------------------- -->
+      <section id="portfolio" class="section" data-section="portfolio">
+        <h1 class="h1-header">#portfolio</h1>
+
+        <ul>
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://koyeb.fercandia.xyz/regions" target="_blank">
+                  <img src="assets/images/worldstats.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">World-stats</h3>
+                <div class="">
+                  <span class="underline">Septiembre 2023:</span>
+                  <span class="ml-5">GDP per capita stats -</span>
+                  <span>Monolith: Rails 7 + StimulusJS, Tailwind CSS</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://front.fercandia.xyz/posts" target="_blank">
+                  <img src="assets/images/react_vercel.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Back+Front simple CRUD</h3>
+                <div class="">
+                  <span class="underline">Octubre 2023:</span>
+                  <span class="ml-5">Go API in Northflank + React Front in Vercel</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!--
+          <li>
+            <div class="img-text-container mt-20">
+              <div id="pro-exp-img"></div>
+              <div class="text-container">
+                <div class="">Sinatra API</div>
+                <div class="">https://sinatra.dsl-abc.xyz/</div>
+                <div class="">Noviembre 2023</div>
+                <div class="">Prender la notebook, ver la IP pública, updatear el dominio y el dokku remote host</div>
+              </div>
+            </div>
+          </li>
+          -->
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://v3-new-test-store.myshopify.com" target="_blank">
+                  <img src="assets/images/shopify_guitars.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Shopify storefront</h3>
+                <div class="">
+                  <span class="underline">Noviembre-Diciembre 2023:</span>
+                  <span class="ml-5">Dawn theme: Sample musical instruments storefront</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <div class="img-text-container mt-20">
+              <div class="pro-exp-img">
+                <a href="https://solidus-2312-v1.onrender.com" target="_blank">
+                  <img src="assets/images/solidus.webp">
+                </a>
+              </div>
+
+              <div class="text-container">
+                <h3 class="">Solidus storefront</h3>
+                <div class="">
+                  <span class="underline">Diciembre 2023:</span>
+                  <span class="ml-5">(Spree fork) Solidus storefront in Rails 7 + StimulusJS</span>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+    </main>
+  </div>
 </body>
+
 </html>

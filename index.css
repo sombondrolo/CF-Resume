@@ -1,0 +1,148 @@
+/* Global */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* 
+body {
+  margin: 0px;
+  padding: 0px;
+}
+*/
+
+#page-top {
+  display: flex;
+}
+
+/* ################################### Sidebar ################################### */
+
+#sidebar {
+  background-color: rgba(200,60,60);
+  /* background-color: #d20000; */
+  min-width: 300px;
+}
+
+#personal-profile {
+  height: 200px;
+  padding: 15px;
+}
+
+/*
+#profile-pic {
+  height: 150px;
+  width: 150px;
+  margin: auto;
+}
+
+#profile-img {
+  border-radius: 50%;
+}
+*/
+
+#profile-pic {
+  width: 100px; 
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  overflow: hidden; /* Hide overflow to maintain the circular shape */
+}
+
+#profile-img {
+  width: 100%; /* Make the image fill the circular container */
+  height: 100%; /* Make the image fill the circular container */
+  object-fit: cover; /* Maintain the aspect ratio */
+  transform: scale(0.8); /* Adjust the scale factor for the zoom-out effect */
+}
+
+#personal-name,
+#career-title {
+  text-align: center;
+  margin-top: 7px;
+  color: white;
+}
+
+#nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+#nav-links li {
+  /* background-color: black; */
+  text-align: center;
+  list-style: none;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ################################### Content ################################### */
+
+#content {
+  /* background-color: rgba(180,180,180); */
+  flex-grow: 1;
+  /* flex: 1; => flex es un alias de flex-grow y otros dos mas */
+  min-height: 100vh;
+}
+
+.section {
+  margin: 25px
+}
+
+.h1-header {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px
+}
+
+/*
+#home {
+  background-color: red;
+}
+*/
+
+#home-wr1 {
+  height: calc(100vh - (2 * 25px));
+}
+
+#home-2 {
+  margin: 10px 0;
+}
+
+.img-text-container {
+  display: flex;
+}
+
+li {
+  list-style: none;
+}
+
+.text-container {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+}
+
+.pro-exp-img {
+  /* background-color: black; */
+  /* width: 400px; */
+  height: 200px;
+}
+
+.pro-exp-img img {
+  max-height: 200px;
+  max-width: 333px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
