@@ -2,7 +2,7 @@
 
 # Adjust NODE_VERSION as desired
 ARG NODE_VERSION=18.20.2
-FROM node:${NODE_VERSION}-slim as base
+FROM node:${NODE_VERSION}-slim AS base
 
 LABEL fly_launch_runtime="Astro"
 
@@ -17,7 +17,7 @@ ARG PNPM_VERSION=9.1.2
 RUN npm install -g pnpm@$PNPM_VERSION
 
 # Throw-away build stage to reduce size of final image
-FROM base as build
+FROM base AS build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
@@ -42,3 +42,6 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 80
 CMD [ "/usr/sbin/nginx", "-g", "daemon off;" ]
+
+# docker build --no-cache -t astro-resume-fercandia .
+# docker run -p 80:80 astro-resume-fercandia
