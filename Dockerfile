@@ -1,22 +1,44 @@
-# https://docs.astro.build/en/recipes/docker/#creating-a-dockerfile
-FROM node:lts AS runtime
+# syntax = docker/dockerfile:1
+
+# Adjust NODE_VERSION as desired
+ARG NODE_VERSION=18.20.2
+FROM node:${NODE_VERSION}-slim as base
+
+LABEL fly_launch_runtime="Astro"
+
+# Astro app lives here
 WORKDIR /app
 
-COPY . .
+# Set production environment
+ENV NODE_ENV="production"
 
-RUN npm install
-RUN npm run build
+# Install pnpm
+ARG PNPM_VERSION=9.1.2
+RUN npm install -g pnpm@$PNPM_VERSION
 
-ENV HOST=0.0.0.0
-ENV PORT=4321
-EXPOSE 4321
-CMD node ./dist/server/entry.mjs
+# Throw-away build stage to reduce size of final image
+FROM base as build
 
-# https://docs.astro.build/en/guides/deploy/flyio/
-# https://www.npmjs.com/package/@flydotio/dockerfile
-# https://github.com/fly-apps/dockerfile-node
+# Install packages needed to build node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
-# Serve your site in a tiny production container, which serves on port 8043.
-# FROM pierrezemb/gostatic
-# COPY --from=bridgetown_builder /app/output /srv/http/
-# docker run -d -p 8043:8043 astro-fercandia-cv
+# Install node modules
+COPY --link package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+
+# Copy application code
+COPY --link . .
+
+# Build application
+RUN pnpm run build
+
+# Final stage for app image
+FROM nginx
+
+# Copy built application
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Start the server by default, this can be overwritten at runtime
+EXPOSE 80
+CMD [ "/usr/sbin/nginx", "-g", "daemon off;" ]
