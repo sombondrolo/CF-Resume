@@ -1,0 +1,20 @@
+---
+import Navlink from './Navlink.astro'
+
+const navLinks = [
+  { href: '/',         title: 'Me' },
+  { href: '/skills',   title: 'Skills' },
+  { href: '/work',     title: 'Work' },
+  { href: '/projects', title: 'Projects' }
+]
+---
+<nav>
+	<ul>
+		{navLinks.map(link => (
+      <Navlink href={link.href} title={link.title} />
+    ))}
+	</ul>
+</nav>
+
+<style>
+</style>
