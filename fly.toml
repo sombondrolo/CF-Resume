@@ -12,7 +12,7 @@ primary_region = 'eze'
   internal_port = 80
   force_https = true
   auto_stop_machines = 'off'
-  min_machines_running = 0
+  min_machines_running = 1
   processes = ['app']
 
 [[vm]]
