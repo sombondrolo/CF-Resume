@@ -5,7 +5,11 @@ const clients = []
 const projects = [
   { 
     name: "Agrobikes", link: "https://www.agrobikes.com.ar",
-    captionUrl: "https://fernandocandia.com.ar/20241230-01-agrobikes-600x291.webp"
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-01-agrobikes-600x291.webp",
+    tasks: [
+      { date: "Septiembre 2021", description: "Agregado de links y React component" },
+      { date: "Diciembre 2022", description: "Fix para Safari y media-querys - Tamaños de logos en home" }
+    ]
   }
 ]
 ---
@@ -23,13 +27,88 @@ const projects = [
     <p>Making contributions to these projects:</p>
     <ul>
       { projects.map(project => (
-        <li>
-          <img src={project.captionUrl} alt={`Caption for ${project.name}`}>
-          <a href={project.link}>
-            {project.name}
-          </a>
+        <li class="project-list-item">
+          <img src={project.imageUrl} alt={`${project.name}`} class="project-img">
+
+          <div class="overlay">
+            <a href={project.link} class="project-link">
+              {project.name}
+            </a>
+
+            <ul class="project-tasks-list">
+              { project.tasks.map(task => (
+                <li class="date-task-description-row">
+                  <p class="date-col">{task.date}</p>
+                  <p class="task-description-col">{task.description}</p>
+                </li>
+              )) }
+            </ul>
+          </div>
         </li>
       )) }
     </ul>
   </section>
 </Layout>
+
+<style>
+
+li {
+  list-style-type: none;
+}
+
+.project-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  overflow: hidden;
+  position: relative; /* Important for overlay positioning */
+}
+.project-list-item:hover {
+  cursor: pointer;
+}
+.project-list-item:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-img {
+  width: 100%;
+  transition: all 0.4s ease-in-out;
+  z-index: 1; /* Ensures image is above the overlay by default */
+  position: relative; /* Establish stacking context */
+}
+
+/* The overlay is initially hidden */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Hide the overlay by default */
+  transition: opacity 0.3s ease-in-out;
+  text-decoration: none;
+  z-index: 2; /* Ensure overlay is above the image when visible */
+
+  // Text content
+  display: flex;
+  flex-direction: column;
+}
+
+/* Show the overlay on .project-list-item hover */
+.project-list-item:hover .overlay {
+  opacity: 1;
+}
+
+.project-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+</style>
