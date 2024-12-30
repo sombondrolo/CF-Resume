@@ -1,14 +1,35 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+
+const clients = []
+const projects = [
+  { 
+    name: "Agrobikes", link: "https://www.agrobikes.com.ar",
+    captionUrl: "https://fernandocandia.com.ar/20241230-01-agrobikes-600x291.webp"
+  }
+]
 ---
 
 <Layout title="Work | Fer Candia">
   <section>
-    <h1>Work</h1>
-    <p>Here are my work experience:</p>
+    <h1>Work Experience</h1>
+    <p>I've worked with these clients:</p>
+
     <ul>
       <li>Green Interactivo</li>
       <li>Yoes</li>
+    </ul>
+
+    <p>Making contributions to these projects:</p>
+    <ul>
+      { projects.map(project => (
+        <li>
+          <img src={project.captionUrl} alt={`Caption for ${project.name}`}>
+          <a href={project.link}>
+            {project.name}
+          </a>
+        </li>
+      )) }
     </ul>
   </section>
 </Layout>
