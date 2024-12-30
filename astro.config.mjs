@@ -6,5 +6,12 @@ export default defineConfig({
 		// port: 3000,
     port: 4321,
 		host: true
-	}
+	},
+	vite: {
+    resolve: {
+      alias: {
+        '@': new URL('./src', import.meta.url).pathname
+      }
+    }
+  }
 })
