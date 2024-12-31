@@ -2,16 +2,120 @@
 import Layout from '@/layouts/Layout.astro'
 
 const clients = []
+
 const projects = [
-  { 
-    name: "Agrobikes", link: "https://www.agrobikes.com.ar",
+  {
+    name: "AGROBIKES", link: "https://www.agrobikes.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-01-agrobikes-600x291.webp",
+    // iconitos: "",
+    techDescription: "Ruby on Rails 6 monolith, SSR React w/webpacker, Bootstrap+SASS, Heroku, images in AWS S3",
     tasks: [
       { date: "Septiembre 2021", description: "Agregado de links y React component" },
-      { date: "Diciembre 2022", description: "Fix para Safari y media-querys - Tamaños de logos en home" }
+      { date: "Diciembre 2022", description: "Fix para Safari y media-querys - Tamaños de logos en home" },
+      { date: "Marzo 2023", description: "Link Defensa Consumidor - Resizeo de imgs desde el admin panel - Fix al :hover active selector" },
+      { date: "Ago-Sep 2023", description: "Fix RRHH form desde panel Sendgrid" },
+      { date: "Junio 2024", description: "3 WhatsApp Icons" },
+      { date: "Agosto 2024", description: "Fix Instagram URL, WhatsApp Responsive Menu" },
+      { date: "Octubre 2024", description: "heroku pg:backups:download and Schedule" },
+      { date: "Noviembre 2024", description: "Inactivas 404, /compania images" },
+      { date: "Diciembre 2024", description: "Tecnom implementation" },
+    ],
+  },
+  {
+    name: "DELSURLEATHER", link: "https://www.delsurleather.com",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-02-delsurleather-600x291.webp",
+    techDescription: "Ruby on Rails 6 monolith, Bootstrap CSS - 🇺🇸🇪🇺 Heroku, images in AWS S3, 🇨🇳 Alibaba Cloud",
+    tasks: [
+      { date: "Oct-Nov 2021", description: "Asistencia en instalación en Alibaba Cloud" },
+      { date: "Diciembre 2022", description: "Diagnóstico del problema de indexación de Google" },
+      { date: "Marzo 2023", description: "Instalación de certificados SSL" },
+      { date: "Mayo 2023", description: "CVE security fix y update system, Docker y Dokku" },
+      { date: "Agosto 2023", description: "Link ICP y dokku ps:scale web=1" },
+      { date: "Enero 2024", description: "Fix: subieron video en vez de imagen" },
+      { date: "Octubre 2024", description: "Limpieza docker, dokku, repo" },
+      { date: "Noviembre 2024", description: "scp del .git y DB back" },
+    ],
+    infoExtra: "¡10 a 200 clicks en 2023! 🏆",
+    imgExtra: [
+      "https://assets.fernandocandia.com.ar/20241231-01-delsurleather_indexacion_clicks-edited.webp",
+      "https://assets.fernandocandia.com.ar/20241231-02-delsurleather_indexacion_clicks-edited.webp",
     ]
-  }
+  },
+  {
+    name: "SUZUKI AGRONOMIA", link: "https://www.suzukiagronomia.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-03-suzukiagronomia-600x286.webp",
+    techDescription: "Ruby on Rails 6 monolith, SSR React w/webpacker, Bootstrap+SASS, Heroku, images in AWS S3",
+    tasks: [
+      { date: "Nov-Dic 2021", description: "Montaje de proyecto" },
+      { date: "Diciembre 2022", description: "Fix para Safari y media-querys - Tamaños de logos en home" },
+      { date: "Mar-Abr 2023", description: "Ajustes a la galería de imgs en la home - Fix de selector de colores de la moto" },
+      { date: "Agosto 2024", description: "Foto de moto responsive" },
+    ],
+  },
+  {
+    name: "RESIDENCIA ROMA (DISCONTINUADO)", link: "https://www.instagram.com/residencia_roma/?hl=es-la",
+    imageUrl: "https://assets.fernandocandia.com.ar/residencia-roma.jpg",
+    techDescription: "Ruby on Rails 6 monolith - Heroku, images in AWS S3",
+    tasks: [
+      { date: "Ago 2022", description: "Corrección de links a imgs rotas" },
+    ],
+  },
+  {
+    name: "XP SACABOLLOS", link: "https://www.xpsacabollos.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-06-xpsacabollos-600x291.webp",
+    techDescription: "Ruby on Rails monolith - Heroku",
+    tasks: [
+      { date: "Ene-Mar-Abr 2023", description: "Ajustes visuales en la homepage" },
+      { date: "Septiembre 2024", description: "/trabajos image nil" },
+    ],
+  },
+  {
+    name: "SCOMBRO", link: "https://scombro.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-04-scombro-600x291.webp",
+    techDescription: "(Antes Wordpress+WooCommerce en Siteground) Instancia de TiendaNube",
+    tasks: [
+      { date: "Ago-Sep 2023", description: "Consultoría sobre migración de hosting de Siteground a GCP" },
+    ],
+  },
+  {
+    name: "GREEN INTERACTIVO", link: "https://www.greeninteractive.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-05-greeninteractivo-600x286.webp",
+    techDescription: "Ruby on Rails monolith - Heroku",
+    tasks: [
+      { date: "Septiembre 2023", description: "Diagnóstico y corrección de error en envío de formularios" },
+    ],
+  },
+  {
+    name: "VACAY LUXE RENTALS", link: "https://www.vacayluxerentals.com",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-08-vacayluxerentals-600x291.webp",
+    techDescription: "Wordpress+WooCommerce en un server de Google Cloud",
+    tasks: [
+      { date: "Diciembre 2023", description: "Consultoría sobre consumo de recursos" },
+      { date: "Ene 2024", description: "php memory.conf" },
+    ],
+  },
+  {
+    name: "ID SPORTS", link: "https://www.idsports.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241230-07-idsports-600x291.webp",
+    techDescription: "Wordpress+WooCommerce en un server de Google Cloud",
+    tasks: [
+      { date: "Diciembre 2023", description: "Consultoría sobre consumo de recursos" },
+      { date: "Marzo 2024", description: "Backup DB, repo" },
+      { date: "Abril 2024", description: "WooCommerce price tables, Backup DR, resizear partición" },
+      { date: "Mayo 2024", description: "GCP AutoSnapshots disco duro" },
+      { date: "Jun 2024", description: "Bajar los php-fpm spawns" },
+    ],
+  },
+  {
+    name: "YOES", link: "https://yoes.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/20241231-09-yoes-600x291.webp",
+    techDescription: "Preact SPA en Netlify",
+    tasks: [
+      { date: "Ago-Sep 2024", description: "Creación del website" },
+    ],
+  },
 ]
+
 ---
 
 <Layout title="Work | Fer Candia">
@@ -25,15 +129,36 @@ const projects = [
     </ul>
 
     <p>Making contributions to these projects:</p>
-    <ul>
+    <!-- Media queries: Mobile 1 col, Desktop 2 cols -->
+    <ul class="projects-list">
       { projects.map(project => (
         <li class="project-list-item">
           <img src={project.imageUrl} alt={`${project.name}`} class="project-img">
 
           <div class="overlay">
-            <a href={project.link} class="project-link">
-              {project.name}
-            </a>
+            <div class="name-and-link">
+              <h1>{project.name}</h1>
+
+              <a href={project.link} class="project-link" target="_blank">
+                ↗️
+              </a>
+            </div>
+
+            {project.infoExtra && project.imgExtra?.length > 0 && (
+              <div class="extra-info">
+                <p>{project.infoExtra}</p>
+
+                <div class="links-wrapper">
+                  { project.imgExtra.map((img, index) => (
+                    <a href={img} target="_blank">
+                      Img {index + 1}
+                    </a>
+                  )) }
+                </div>
+              </div>
+            )}
+
+            <p class="tech-description">{project.techDescription}</p>
 
             <ul class="project-tasks-list">
               { project.tasks.map(task => (
@@ -47,35 +172,55 @@ const projects = [
         </li>
       )) }
     </ul>
+
   </section>
 </Layout>
 
 <style>
-
+/* Resets */
 li {
   list-style-type: none;
+}
+
+/* Normal Tags */
+section {
+  padding: 20px;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  width: 1200px;
+  margin-inline: auto;
 }
 
 .project-list-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  width: 580px;
+  height: 281px;
   overflow: hidden;
+  border-radius: 8px;
   position: relative; /* Important for overlay positioning */
 }
 .project-list-item:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .project-list-item:hover .project-img {
   transform: scale(1.05);
 }
 
 .project-img {
-  width: 100%;
+  /* width: 100%; */
   transition: all 0.4s ease-in-out;
-  z-index: 1; /* Ensures image is above the overlay by default */
-  position: relative; /* Establish stacking context */
+  z-index: 1;
+  position: relative;
+  min-height: 100%;
+  /* object-fit: contain; */
 }
 
 /* The overlay is initially hidden */
@@ -85,7 +230,7 @@ li {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+  background: rgba(0, 0, 0, 0.85); /* Black background with transparency */
   color: white;
   display: flex;
   justify-content: center;
@@ -95,7 +240,7 @@ li {
   text-decoration: none;
   z-index: 2; /* Ensure overlay is above the image when visible */
 
-  // Text content
+  /* Text content */
   display: flex;
   flex-direction: column;
 }
@@ -105,10 +250,50 @@ li {
   opacity: 1;
 }
 
+.name-and-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+}
+
 .project-link {
   text-decoration: none;
   color: white;
-  font-weight: bold;
+  /* font-weight: bold; */
+  font-size: medium;
 }
 
+.extra-info {
+  margin: 10px 20px 0 auto;
+  font-size: small;
+}
+
+.links-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tech-description {
+  font-size: small;
+  margin-top: 10px;
+}
+
+.project-tasks-list {
+  width: 90%;
+  margin-top: 10px;
+}
+
+.date-task-description-row {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+  font-size: x-small;
+}
+
+.date-col {
+  width: 100px;
+  text-align: center;
+  font-style: italic;
+}
 </style>
