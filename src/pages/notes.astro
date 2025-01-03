@@ -1,0 +1,21 @@
+---
+const notes = [
+  "Task Array sobrepasa altura de overlay",
+  "¿que fondo le pongo?",
+  "Agregar /viewport al footer",
+]
+
+---
+<div class="notes-container">
+  { notes.map(note => 
+    <p class="notes-text">{note}</p>
+  )}
+</div>
+
+<style>
+p.notes-text {
+  color: red;
+  font-size: x-small;
+  text-align: end;
+}
+</style>

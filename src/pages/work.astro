@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import Notes from '@/pages/notes.astro'
 
 const clients = []
 
@@ -7,8 +8,23 @@ const projects = [
   {
     name: "AGROBIKES", link: "https://www.agrobikes.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-01-agrobikes-600x291.webp",
-    // iconitos: "",
-    techDescription: "Ruby on Rails 6 monolith, SSR React w/webpacker, Bootstrap+SASS, Heroku, images in AWS S3",
+    techIcons: [
+      { assetPath: "/assets/docker.svg", name: "Docker" },
+      { assetPath: "/assets/alpine-linux.svg", name: "Alpine Linux" },
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/react.svg", name: "React" },
+      { assetPath: "/assets/nodejs.svg", name: "NodeJS" },
+      { assetPath: "/assets/webpack.svg", name: "Webpack" },
+      { assetPath: "/assets/bootstrap.svg", name: "Bootstrap" },
+      { assetPath: "/assets/jquery.svg", name: "jQuery" },
+      { assetPath: "/assets/sass.svg", name: "SASS" },
+      { assetPath: "/assets/heroku.svg", name: "Heroku" },
+      { assetPath: "/assets/postgresql.svg", name: "PostgreSQL" },
+      { assetPath: "/assets/sendgrid.svg", name: "Sendgrid" },
+      { assetPath: "/assets/aws-s3.svg", name: "AWS S3" },
+    ],
+    techDescription: "Ruby 2.6, Rails 6.0, nodejs v14.21, SSR monolith w/webpacker + React 16 - Bootstrap 4.5, jQuery, SASS - Heroku, images in AWS S3",
     tasks: [
       { date: "Septiembre 2021", description: "Agregado de links y React component" },
       { date: "Diciembre 2022", description: "Fix para Safari y media-querys - Tamaños de logos en home" },
@@ -18,13 +34,30 @@ const projects = [
       { date: "Agosto 2024", description: "Fix Instagram URL, WhatsApp Responsive Menu" },
       { date: "Octubre 2024", description: "heroku pg:backups:download and Schedule" },
       { date: "Noviembre 2024", description: "Inactivas 404, /compania images" },
-      { date: "Diciembre 2024", description: "Tecnom implementation" },
+      { date: "Diciembre 2024", description: "*Tecnom implementation" },
     ],
   },
   {
     name: "DELSURLEATHER", link: "https://www.delsurleather.com",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-02-delsurleather-600x291.webp",
-    techDescription: "Ruby on Rails 6 monolith, Bootstrap CSS - 🇺🇸🇪🇺 Heroku, images in AWS S3, 🇨🇳 Alibaba Cloud",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/nodejs.svg", name: "NodeJS" },
+      { assetPath: "/assets/webpack.svg", name: "Webpack" },
+      { assetPath: "/assets/jquery.svg", name: "jQuery" },
+      { assetPath: "/assets/heroku.svg", name: "Heroku" },
+      { assetPath: "/assets/postgresql.svg", name: "PostgreSQL" },
+      { assetPath: "/assets/sendgrid.svg", name: "Sendgrid" },
+      { assetPath: "/assets/aws-s3.svg", name: "AWS S3" },
+      { assetPath: "/assets/alibaba-cloud.svg", name: "Alibaba Cloud" },
+      { assetPath: "/assets/ubuntu.svg", name: "Ubuntu 22.04" },
+      { assetPath: "/assets/bash.svg", name: "Bash" },
+      { assetPath: "/assets/docker.svg", name: "Docker" },
+      { assetPath: "/assets/png/dokku.png", name: "Dokku" },
+      { assetPath: "/assets/google-search-console.svg", name: "Google Search Console" },
+    ],
+    techDescription: "Ruby 2.7, Rails 6.1, nodejs v18.20 SSR monolith w/webpacker - jQuery, popper.js - 🇺🇸🇪🇺 Heroku, images in AWS S3, 🇨🇳 Alibaba Cloud: Dokku PaaS in Ubuntu 22.04",
     tasks: [
       { date: "Oct-Nov 2021", description: "Asistencia en instalación en Alibaba Cloud" },
       { date: "Diciembre 2022", description: "Diagnóstico del problema de indexación de Google" },
@@ -44,9 +77,24 @@ const projects = [
   {
     name: "SUZUKI AGRONOMIA", link: "https://www.suzukiagronomia.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-03-suzukiagronomia-600x286.webp",
-    techDescription: "Ruby on Rails 6 monolith, SSR React w/webpacker, Bootstrap+SASS, Heroku, images in AWS S3",
+    techIcons: [
+      { assetPath: "/assets/docker.svg", name: "Docker" },
+      { assetPath: "/assets/alpine-linux.svg", name: "Alpine Linux" },
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/react.svg", name: "React" },
+      { assetPath: "/assets/nodejs.svg", name: "NodeJS" },
+      { assetPath: "/assets/bootstrap.svg", name: "Bootstrap" },
+      { assetPath: "/assets/jquery.svg", name: "jQuery" },
+      { assetPath: "/assets/sass.svg", name: "SASS" },
+      { assetPath: "/assets/heroku.svg", name: "Heroku" },
+      { assetPath: "/assets/postgresql.svg", name: "PostgreSQL" },
+      { assetPath: "/assets/sendgrid.svg", name: "Sendgrid" },
+      { assetPath: "/assets/aws-s3.svg", name: "AWS S3" },
+    ],
+    techDescription: "Ruby 2.6, Rails 6.0, nodejs v14.21, SSR monolith w/webpacker + React 16 - Bootstrap 4.5, jQuery, SASS - Heroku, images in AWS S3",
     tasks: [
-      { date: "Nov-Dic 2021", description: "Montaje de proyecto" },
+      { date: "Nov-Dic 2021", description: "Despliegue de proyecto en Heroku" },
       { date: "Diciembre 2022", description: "Fix para Safari y media-querys - Tamaños de logos en home" },
       { date: "Mar-Abr 2023", description: "Ajustes a la galería de imgs en la home - Fix de selector de colores de la moto" },
       { date: "Agosto 2024", description: "Foto de moto responsive" },
@@ -55,7 +103,16 @@ const projects = [
   {
     name: "RESIDENCIA ROMA (DISCONTINUADO)", link: "https://www.instagram.com/residencia_roma/?hl=es-la",
     imageUrl: "https://assets.fernandocandia.com.ar/residencia-roma.jpg",
-    techDescription: "Ruby on Rails 6 monolith - Heroku, images in AWS S3",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/gmaps.svg", name: "Google Maps" },
+      { assetPath: "/assets/heroku.svg", name: "Heroku" },
+      { assetPath: "/assets/postgresql.svg", name: "PostgreSQL" },
+      { assetPath: "/assets/sendgrid.svg", name: "Sendgrid" },
+      { assetPath: "/assets/aws-s3.svg", name: "AWS S3" },
+    ],
+    techDescription: "Ruby 2.4, Rails 5.2 monolith - Heroku, images in AWS S3",
     tasks: [
       { date: "Ago 2022", description: "Corrección de links a imgs rotas" },
     ],
@@ -63,7 +120,16 @@ const projects = [
   {
     name: "XP SACABOLLOS", link: "https://www.xpsacabollos.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-06-xpsacabollos-600x291.webp",
-    techDescription: "Ruby on Rails monolith - Heroku",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/gmaps.svg", name: "Google Maps" },
+      { assetPath: "/assets/heroku.svg", name: "Heroku" },
+      { assetPath: "/assets/postgresql.svg", name: "PostgreSQL" },
+      { assetPath: "/assets/sendgrid.svg", name: "Sendgrid" },
+      { assetPath: "/assets/aws-s3.svg", name: "AWS S3" },
+    ], 
+    techDescription: "Ruby 2.4, Rails 5.2 monolith - Heroku, images in AWS S3",
     tasks: [
       { date: "Ene-Mar-Abr 2023", description: "Ajustes visuales en la homepage" },
       { date: "Septiembre 2024", description: "/trabajos image nil" },
@@ -72,6 +138,11 @@ const projects = [
   {
     name: "SCOMBRO", link: "https://scombro.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-04-scombro-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/wordpress.svg", name: "Wordpress" },
+      { assetPath: "/assets/woocommerce.svg", name: "WooCommerce" },
+      { assetPath: "/assets/gcp.svg", name: "Google Cloud Platform" },
+    ],
     techDescription: "(Antes Wordpress+WooCommerce en Siteground) Instancia de TiendaNube",
     tasks: [
       { date: "Ago-Sep 2023", description: "Consultoría sobre migración de hosting de Siteground a GCP" },
@@ -80,7 +151,15 @@ const projects = [
   {
     name: "GREEN INTERACTIVO", link: "https://www.greeninteractive.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-05-greeninteractivo-600x286.webp",
-    techDescription: "Ruby on Rails monolith - Heroku",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/heroku.svg", name: "Heroku" },
+      { assetPath: "/assets/postgresql.svg", name: "PostgreSQL" },
+      { assetPath: "/assets/sendgrid.svg", name: "Sendgrid" },
+      { assetPath: "/assets/aws-s3.svg", name: "AWS S3" },
+    ], 
+    techDescription: "Ruby 2.4, Rails 5.2 monolith - jQuery - Heroku, images in AWS S3",
     tasks: [
       { date: "Septiembre 2023", description: "Diagnóstico y corrección de error en envío de formularios" },
     ],
@@ -88,6 +167,16 @@ const projects = [
   {
     name: "VACAY LUXE RENTALS", link: "https://www.vacayluxerentals.com",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-08-vacayluxerentals-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/php.svg", name: "PHP" },
+      { assetPath: "/assets/mariadb.svg", name: "MariaDB" },  
+      { assetPath: "/assets/wordpress.svg", name: "Wordpress" },
+      { assetPath: "/assets/woocommerce.svg", name: "WooCommerce" },
+      { assetPath: "/assets/gcp.svg", name: "Google Cloud Platform" },
+      { assetPath: "/assets/gce.svg", name: "Google Cloud Engine" },
+      { assetPath: "/assets/bitnami.svg", name: "Bitnami" },
+      { assetPath: "/assets/debian.svg", name: "Debian 12" },
+    ],
     techDescription: "Wordpress+WooCommerce en un server de Google Cloud",
     tasks: [
       { date: "Diciembre 2023", description: "Consultoría sobre consumo de recursos" },
@@ -97,6 +186,16 @@ const projects = [
   {
     name: "ID SPORTS", link: "https://www.idsports.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-07-idsports-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/php.svg", name: "PHP" },
+      { assetPath: "/assets/mariadb.svg", name: "MariaDB" },  
+      { assetPath: "/assets/wordpress.svg", name: "Wordpress" },
+      { assetPath: "/assets/woocommerce.svg", name: "WooCommerce" },
+      { assetPath: "/assets/gcp.svg", name: "Google Cloud Platform" },
+      { assetPath: "/assets/gce.svg", name: "Google Cloud Engine" },
+      { assetPath: "/assets/bitnami.svg", name: "Bitnami" },
+      { assetPath: "/assets/debian.svg", name: "Debian 12" },
+    ],
     techDescription: "Wordpress+WooCommerce en un server de Google Cloud",
     tasks: [
       { date: "Diciembre 2023", description: "Consultoría sobre consumo de recursos" },
@@ -109,6 +208,10 @@ const projects = [
   {
     name: "YOES", link: "https://yoes.com.ar",
     imageUrl: "https://assets.fernandocandia.com.ar/20241231-09-yoes-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/preact.svg", name: "Preact" },
+      { assetPath: "/assets/netlify.svg", name: "Netlify" },
+    ],
     techDescription: "Preact SPA en Netlify",
     tasks: [
       { date: "Ago-Sep 2024", description: "Creación del website" },
@@ -120,6 +223,7 @@ const projects = [
 
 <Layout title="Work | Fer Candia">
   <section>
+    <Notes />
     <h1>Work Experience</h1>
     <p>I've worked with these clients:</p>
 
@@ -133,6 +237,7 @@ const projects = [
     <ul class="projects-list">
       { projects.map(project => (
         <li class="project-list-item">
+          {/* (project.props) */}
           <img src={project.imageUrl} alt={`${project.name}`} class="project-img">
 
           <div class="overlay">
@@ -158,6 +263,17 @@ const projects = [
               </div>
             )}
 
+            { project.techIcons && project.techIcons.length > 0 && (
+              <div class="tech-icons-row">
+                { project.techIcons.map(icon =>
+                  <img src={icon.assetPath} alt={icon.name}
+                    width="25" height="25"
+                    title={icon.name}
+                  >
+                )}
+              </div>
+            )}
+
             <p class="tech-description">{project.techDescription}</p>
 
             <ul class="project-tasks-list">
@@ -169,6 +285,7 @@ const projects = [
               )) }
             </ul>
           </div>
+          {/* END (project.props) */}
         </li>
       )) }
     </ul>
@@ -206,6 +323,8 @@ section {
   overflow: hidden;
   border-radius: 8px;
   position: relative; /* Important for overlay positioning */
+  box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
+  outline: 1px solid rgba(180,180,180, 0.6);
 }
 .project-list-item:hover {
   /* cursor: pointer; */
@@ -241,6 +360,7 @@ section {
   z-index: 2; /* Ensure overlay is above the image when visible */
 
   /* Text content */
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -272,6 +392,12 @@ section {
 .links-wrapper {
   display: flex;
   justify-content: space-evenly;
+}
+
+.tech-icons-row {
+  display: flex;
+  column-gap: 5px;
+  margin-top: 10px;
 }
 
 .tech-description {
