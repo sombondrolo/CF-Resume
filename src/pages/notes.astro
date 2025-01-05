@@ -1,24 +1,24 @@
 ---
 const notes = [
-  "Lang switch?",
-  "bg?",
-  "Agregar /viewport al footer",
+  "Navbar: Locales language switch?",
+  "Global: bg?",
+  "Work: animate.css overlay text?",
+  "Footer: Agregar /viewport al footer",
 ]
-
 ---
+<style>
+  .notes-container {
+    margin-bottom: 20px;
+  }
+  p.notes-text {
+    color: red;
+    font-size: x-small;
+    text-align: end;
+  }
+  </style>
+
 <div class="notes-container">
   { notes.map(note => 
     <p class="notes-text">{note}</p>
   )}
 </div>
-
-<style>
-.notes-container {
-  margin-bottom: 20px;
-}
-p.notes-text {
-  color: red;
-  font-size: x-small;
-  text-align: end;
-}
-</style>

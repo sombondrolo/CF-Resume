@@ -2,21 +2,22 @@
 import Layout from '@/layouts/Layout.astro'
 import Notes from '@/pages/notes.astro'
 
+// clients.map(client => client.props)
 const clients = [
-  // client .props
   { 
-    name: "GREEN INTERACTIVO", link: "https://www.greeninteractive.com.ar",
+    name: "GREEN INTERACTIVO", link: "https://www.greeninteractivo.com",
     logo: "/assets/greeninteractivo.svg",
     inlineStyle: "background-color: green;",
-    description: "Green Interactivo es un estudio de diseño web con base en CABA",
+    description: "Green Interactivo es un estudio de diseño web con base en CABA.",
   },
   { 
     name: "YOES", link: "https://yoes.com.ar",
     logo: "/assets/png/yoes-logo.png",
-    description: "Yoes es una pizzería con sede en Trenque Lauquen",
+    description: "Yoes es una pizzería con sede en Trenque Lauquen.",
   },
 ]
 
+// projects.map(project => project.props)
 const projects = [
   {
     name: "AGROBIKES", link: "https://www.agrobikes.com.ar",
@@ -78,6 +79,7 @@ const projects = [
       { date: "Mayo 2023", description: "CVE security fix y update system, Docker y Dokku" },
       { date: "Agosto 2023", description: "Link ICP y dokku ps:scale web=1" },
       { date: "Enero 2024", description: "Fix: subieron video en vez de imagen" },
+      { date: "Mayo 2024", description: "Actualización certificado SSL" },
       { date: "Octubre 2024", description: "Limpieza docker, dokku, repo" },
       { date: "Noviembre 2024", description: "scp del .git y DB back" },
     ],
@@ -162,7 +164,7 @@ const projects = [
     ],
   },
   {
-    name: "GREEN INTERACTIVO", link: "https://www.greeninteractive.com.ar",
+    name: "GREEN INTERACTIVO", link: "https://www.greeninteractivo.com",
     imageUrl: "https://assets.fernandocandia.com.ar/20241230-05-greeninteractivo-600x286.webp",
     techIcons: [
       { assetPath: "/assets/ruby.svg", name: "Ruby" },
@@ -232,123 +234,7 @@ const projects = [
   },
 ]
 ---
-<Layout title="Work | Fer Candia">
-  <section>
-    <Notes />
-
-    <h1>👔 Work Experience</h1>
-    <p>I did work as a freelance full-stack developer for these clients:</p>
-
-    <ul class="clients-list">
-      { clients.map(client => (
-        <li class="client-list-item">
-          <div class="name-link-row">
-            <h4>{client.name}</h4>
-
-            <a href={client.link} class="project-link" target="_blank">
-              ↗️
-            </a>
-          </div>
-
-          <div class="img-container">
-            <img src={client.logo} alt={client.name} style={client.inlineStyle} />
-          </div>
-
-          <p>{client.description}</p>
-        </li>
-      )) }
-    </ul>
-
-    <p>Making contributions to these projects:</p>
-
-    <!-- Media queries: Mobile 1 col, Desktop 2 cols -->
-    <ul class="projects-list">
-      { projects.map(project => (
-        <li class="project-list-item">
-          <img src={project.imageUrl} alt={`${project.name}`} class="project-img">
-
-          <div class="overlay">
-            <div class="overlay-content">
-              <div class="name-and-link">
-                <h1 class="project-name">{project.name}</h1>
-
-                <a href={project.link} class="project-link" target="_blank">
-                  ↗️
-                </a>
-              </div>
-
-              { project.infoExtra && project.imgExtra?.length > 0 && (
-                <div class="extra-info">
-                  <p>{project.infoExtra}</p>
-
-                  <div class="links-wrapper">
-                    { project.imgExtra.map((img, index) => (
-                      <a href={img} target="_blank">
-                        Img {index + 1}
-                      </a>
-                    )) }
-                  </div>
-                </div>
-              ) }
-
-              { project.techIcons && project.techIcons.length > 0 && (
-                <div class="tech-icons-row">
-                  { project.techIcons.map(icon =>
-                    <img src={icon.assetPath} alt={icon.name}
-                      width="25" height="25"
-                      title={icon.name}
-                    >
-                  )}
-                </div>
-              ) }
-
-              {/*
-              <p class="tech-description">{project.techDescription}</p>
-              */}
-
-              <ul class="project-tasks-list">
-                { project.tasks.map(task => (
-                  <li class="date-task-description-row">
-                    <p class="date-col">{task.date}</p>
-                    <p class="task-description-col">{task.description}</p>
-                  </li>
-                )) }
-              </ul>
-            </div>
-          </div>
-        </li>
-      )) }
-    </ul>
-
-  </section>
-</Layout>
-
 <style>
-/* Resets */
-li {
-  list-style-type: none;
-}
-
-/* Normal Tags */
-section {
-  padding: 20px;
-
-  h1, p, ul, li {
-    text-align: center;
-  }
-
-  h1 {
-    margin-bottom: 20px;
-    text-shadow: 1.1px 1.1px gray;
-  }
-
-  ul {
-    margin-block: 20px;
-  }
-}
-
-/* CSS Classes */
-
 .clients-list {
   display: flex;
   justify-content: center;
@@ -513,3 +399,94 @@ section {
   font-style: italic;
 }
 </style>
+
+<Layout title="Work | Fer Candia">
+  <section>
+    <Notes />
+
+    <h1>👔 Work Experience</h1>
+    <p>I did work as a freelance full-stack developer for these clients:</p>
+
+    <ul class="clients-list">
+      { clients.map(client => (
+        <li class="client-list-item">
+          <div class="name-link-row">
+            <h4>{client.name}</h4>
+
+            <a href={client.link} class="project-link" target="_blank">
+              ↗️
+            </a>
+          </div>
+
+          <div class="img-container">
+            <img src={client.logo} alt={client.name} style={client.inlineStyle} />
+          </div>
+
+          <p>{client.description}</p>
+        </li>
+      )) }
+    </ul>
+
+    <p>Making contributions to these projects:</p>
+
+    <!-- Media queries: Mobile 1 col, Desktop 2 cols -->
+    <ul class="projects-list">
+      { projects.map(project => (
+        <li class="project-list-item">
+          <img src={project.imageUrl} alt={`${project.name}`} class="project-img">
+
+          <div class="overlay">
+            <div class="overlay-content">
+              <div class="name-and-link">
+                <h1 class="project-name">{project.name}</h1>
+
+                <a href={project.link} class="project-link" target="_blank">
+                  ↗️
+                </a>
+              </div>
+
+              { project.infoExtra && project.imgExtra?.length > 0 && (
+                <div class="extra-info">
+                  <p>{project.infoExtra}</p>
+
+                  <div class="links-wrapper">
+                    { project.imgExtra.map((img, index) => (
+                      <a href={img} target="_blank">
+                        Img {index + 1}
+                      </a>
+                    )) }
+                  </div>
+                </div>
+              ) }
+
+              { project.techIcons && project.techIcons.length > 0 && (
+                <div class="tech-icons-row">
+                  { project.techIcons.map(icon =>
+                    <img src={icon.assetPath} alt={icon.name}
+                      width="25" height="25"
+                      title={icon.name}
+                    >
+                  )}
+                </div>
+              ) }
+
+              {/*
+              <p class="tech-description">{project.techDescription}</p>
+              */}
+
+              <ul class="project-tasks-list">
+                { project.tasks.map(task => (
+                  <li class="date-task-description-row">
+                    <p class="date-col">{task.date}</p>
+                    <p class="task-description-col">{task.description}</p>
+                  </li>
+                )) }
+              </ul>
+            </div>
+          </div>
+        </li>
+      )) }
+    </ul>
+
+  </section>
+</Layout>

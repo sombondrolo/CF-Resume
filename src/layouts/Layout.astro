@@ -31,6 +31,7 @@ import Navbar from '@/components/Navbar.astro'
 </html>
 
 <style is:global>
+/* Astro boiler */
 :root {
 	--accent: 136, 58, 234;
 	--accent-light: 224, 204, 250;
@@ -63,5 +64,27 @@ code {
 body, p, h1, h4, h5, ul {
   margin: 0;
 	padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Global HTML Tags */
+section {
+  padding: 20px;
+
+  h1, p, ul, li {
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    text-shadow: 1.1px 1.1px gray;
+  }
+
+  ul {
+    margin-block: 20px;
+  }
 }
 </style>

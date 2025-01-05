@@ -1,15 +1,128 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import Notes from '@/pages/notes.astro'
+
+// projects.map(project => project.props)
+const projects = [
+  {
+    name: "WORLD STATS", link: "https://koyeb.fercandia.xyz",
+    imageUrl: "https://assets.fernandocandia.com.ar/20250105-01-world_stats-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/stimulus.svg", name: "Stimulus" },
+    ],
+    techDescription: "Ruby 3.2, Rails 7.0, SSR monolith w/ESbuild + Hotwire(Stimulus/Turbo), chartkick - Tailwind CSS, Font Awesome - Hosted in Koyeb",
+    description: "A list of GDP graphs by geographical regions, economic statistics table for each country and climate info of cities",
+  },
+  {
+    name: "ABM+TDD CONSIGNA SNAPPLER (TBD)", link: "https://northflank.fercandia.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/placeholder-1200x800.png",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/rspec.svg", name: "RSpec" },
+    ],
+    techDescription: "Ruby 3.2, Rails 7.0, SSR monolith w/ESbuild + Hotwire(Stimulus/Turbo) - Bootstrap CSS - Hosted in Northflank",
+    description: "CRUD con 95% RSpec test coverage",
+  },
+  {
+    name: "SHOPIFY ECOMMERCE STOREFRONT", link: "https://v3-new-test-store.myshopify.com/",
+    imageUrl: "https://assets.fernandocandia.com.ar/20250105-02-shopify.webp",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+    ],
+    techDescription: "Shopify",
+    description: "password: sheets",
+  },
+  {
+    name: "REAL ESTATE PLATFORM ADMIN", link: "https://back-rails.fly.dev",
+    imageUrl: "https://assets.fernandocandia.com.ar/20250105-03-real_estate_back-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/ruby.svg", name: "Ruby" },
+      { assetPath: "/assets/rails.svg", name: "Rails" },
+      { assetPath: "/assets/tailwind.svg", name: "Tailwind CSS" },
+      { assetPath: "/assets/tailwind.svg", name: "Flowbite" },
+    ],
+    techDescription: "Ruby 3.2, Rails 7.0 API + React 18 Front w/ESbuild-Rollup - PrimeReact UI Components - Hosted in Fly.io, images in GCS",
+    description: "Microservices architecture SPA navigation",
+  },
+  {
+    name: "REAL ESTATE PLATFORM", link: "https://front-react-tsx-primereact.fly.dev",
+    imageUrl: "https://assets.fernandocandia.com.ar/20250105-04-real_estate_front-600x291.webp",
+    techIcons: [
+      { assetPath: "/assets/react.svg", name: "NodeJS" },
+      { assetPath: "/assets/react.svg", name: "React" },
+    ],
+    techDescription: "Ruby 3.2, Rails 7.0 API + React 18 Front w/ESbuild-Rollup - PrimeReact UI Components - Hosted in Fly.io, images in GCS",
+    description: "Microservices architecture SPA navigation",
+  },
+  /*
+  {
+    name: "PERSONAL AGENDA (TBD)", link: "https://fercandia.com.ar",
+    imageUrl: "https://assets.fernandocandia.com.ar/placeholder-1200x800.png",
+    techIcons: [
+      { assetPath: "/assets/preact.svg", name: "Preact" },
+    ],
+    techDescription: "Preact SPA hosted in Netlify, images in GCS",
+    description: "SPA for personal notes and testing purposes",
+  },
+  */
+]
 ---
+<style>
+.projects-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+}
+.project-list-item {
+  width: 500px;
+}
+.name-link-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  justify-content: center;
+}
+.project-link {
+  text-decoration: none;
+}
+.img-container {
+  height: 240px;
+  img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+}
+</style>
 
 <Layout title="Projects | Fer Candia">
   <section>
-    <h1>Projects</h1>
-    <p>Here are my personal projects:</p>
-    <ul>
-      <li>World Stats</li>
-      <li>Real Estate Platform</li>
-      <li>Ecommerce</li>
+    <Notes />
+
+    <h1>📚 Personal Projects</h1>
+    <p>These are my personal projects:</p>
+
+    <ul class="projects-list">
+      { projects.map(project => (
+        <li class="project-list-item">
+          <div class="name-link-row">
+            <h4>{project.name}</h4>
+
+            <a href={project.link} class="project-link" target="_blank">
+              ↗️
+            </a>
+          </div>
+
+          <div class="img-container">
+            <img src={project.imageUrl} alt={project.name} />
+          </div>
+        </li>
+      )) }
     </ul>
   </section>
 </Layout>
