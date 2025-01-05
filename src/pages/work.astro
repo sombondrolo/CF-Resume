@@ -2,7 +2,20 @@
 import Layout from '@/layouts/Layout.astro'
 import Notes from '@/pages/notes.astro'
 
-const clients = []
+const clients = [
+  // client .props
+  { 
+    name: "GREEN INTERACTIVO", link: "https://www.greeninteractive.com.ar",
+    logo: "/assets/greeninteractivo.svg",
+    inlineStyle: "background-color: green;",
+    description: "Green Interactivo es un estudio de diseño web con base en CABA",
+  },
+  { 
+    name: "YOES", link: "https://yoes.com.ar",
+    logo: "/assets/png/yoes-logo.png",
+    description: "Yoes es una pizzería con sede en Trenque Lauquen",
+  },
+]
 
 const projects = [
   {
@@ -218,74 +231,91 @@ const projects = [
     ],
   },
 ]
-
 ---
-
 <Layout title="Work | Fer Candia">
   <section>
     <Notes />
-    <h1>Work Experience</h1>
-    <p>I've worked with these clients:</p>
 
-    <ul>
-      <li>Green Interactivo</li>
-      <li>Yoes</li>
+    <h1>👔 Work Experience</h1>
+    <p>I did work as a freelance full-stack developer for these clients:</p>
+
+    <ul class="clients-list">
+      { clients.map(client => (
+        <li class="client-list-item">
+          <div class="name-link-row">
+            <h4>{client.name}</h4>
+
+            <a href={client.link} class="project-link" target="_blank">
+              ↗️
+            </a>
+          </div>
+
+          <div class="img-container">
+            <img src={client.logo} alt={client.name} style={client.inlineStyle} />
+          </div>
+
+          <p>{client.description}</p>
+        </li>
+      )) }
     </ul>
 
     <p>Making contributions to these projects:</p>
+
     <!-- Media queries: Mobile 1 col, Desktop 2 cols -->
     <ul class="projects-list">
       { projects.map(project => (
         <li class="project-list-item">
-          {/* (project.props) */}
           <img src={project.imageUrl} alt={`${project.name}`} class="project-img">
 
           <div class="overlay">
-            <div class="name-and-link">
-              <h1>{project.name}</h1>
+            <div class="overlay-content">
+              <div class="name-and-link">
+                <h1 class="project-name">{project.name}</h1>
 
-              <a href={project.link} class="project-link" target="_blank">
-                ↗️
-              </a>
-            </div>
+                <a href={project.link} class="project-link" target="_blank">
+                  ↗️
+                </a>
+              </div>
 
-            {project.infoExtra && project.imgExtra?.length > 0 && (
-              <div class="extra-info">
-                <p>{project.infoExtra}</p>
+              { project.infoExtra && project.imgExtra?.length > 0 && (
+                <div class="extra-info">
+                  <p>{project.infoExtra}</p>
 
-                <div class="links-wrapper">
-                  { project.imgExtra.map((img, index) => (
-                    <a href={img} target="_blank">
-                      Img {index + 1}
-                    </a>
-                  )) }
+                  <div class="links-wrapper">
+                    { project.imgExtra.map((img, index) => (
+                      <a href={img} target="_blank">
+                        Img {index + 1}
+                      </a>
+                    )) }
+                  </div>
                 </div>
-              </div>
-            )}
+              ) }
 
-            { project.techIcons && project.techIcons.length > 0 && (
-              <div class="tech-icons-row">
-                { project.techIcons.map(icon =>
-                  <img src={icon.assetPath} alt={icon.name}
-                    width="25" height="25"
-                    title={icon.name}
-                  >
-                )}
-              </div>
-            )}
+              { project.techIcons && project.techIcons.length > 0 && (
+                <div class="tech-icons-row">
+                  { project.techIcons.map(icon =>
+                    <img src={icon.assetPath} alt={icon.name}
+                      width="25" height="25"
+                      title={icon.name}
+                    >
+                  )}
+                </div>
+              ) }
 
-            <p class="tech-description">{project.techDescription}</p>
+              {/*
+              <p class="tech-description">{project.techDescription}</p>
+              */}
 
-            <ul class="project-tasks-list">
-              { project.tasks.map(task => (
-                <li class="date-task-description-row">
-                  <p class="date-col">{task.date}</p>
-                  <p class="task-description-col">{task.description}</p>
-                </li>
-              )) }
-            </ul>
+              <ul class="project-tasks-list">
+                { project.tasks.map(task => (
+                  <li class="date-task-description-row">
+                    <p class="date-col">{task.date}</p>
+                    <p class="task-description-col">{task.description}</p>
+                  </li>
+                )) }
+              </ul>
+            </div>
           </div>
-          {/* END (project.props) */}
         </li>
       )) }
     </ul>
@@ -302,6 +332,60 @@ li {
 /* Normal Tags */
 section {
   padding: 20px;
+
+  h1, p, ul, li {
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    text-shadow: 1.1px 1.1px gray;
+  }
+
+  ul {
+    margin-block: 20px;
+  }
+}
+
+/* CSS Classes */
+
+.clients-list {
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+}
+
+.client-list-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  outline: 1px solid rgba(150,150,150,0.7);
+  box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
+  padding: 6px 12px;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+
+  p {
+    font-size: small;
+  }
+}
+
+.client-list-item:hover {
+  transform: scale(1.05);
+}
+.img-container {
+  height: 100px;
+
+  img {
+    height: 100%;
+  }
+}
+
+.name-link-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
 }
 
 .projects-list {
@@ -318,16 +402,17 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 580px;
+  width: 578px;
   height: 281px;
   overflow: hidden;
   border-radius: 8px;
   position: relative; /* Important for overlay positioning */
   box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
   outline: 1px solid rgba(180,180,180, 0.6);
+  transition: all 0.3s ease-in-out;
 }
 .project-list-item:hover {
-  /* cursor: pointer; */
+  transform: scale(1.04);
 }
 .project-list-item:hover .project-img {
   transform: scale(1.05);
@@ -358,11 +443,6 @@ section {
   transition: opacity 0.3s ease-in-out;
   text-decoration: none;
   z-index: 2; /* Ensure overlay is above the image when visible */
-
-  /* Text content */
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Show the overlay on .project-list-item hover */
@@ -370,11 +450,22 @@ section {
   opacity: 1;
 }
 
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+}
+
 .name-and-link {
   display: flex;
   flex-direction: row;
   align-items: center;
   column-gap: 10px;
+}
+
+.project-name {
+  margin-bottom: unset;
 }
 
 .project-link {
@@ -385,7 +476,7 @@ section {
 }
 
 .extra-info {
-  margin: 10px 20px 0 auto;
+  margin: 0 0 0 auto;
   font-size: small;
 }
 
@@ -397,7 +488,7 @@ section {
 .tech-icons-row {
   display: flex;
   column-gap: 5px;
-  margin-top: 10px;
+  margin-top: unset;
 }
 
 .tech-description {
@@ -406,8 +497,7 @@ section {
 }
 
 .project-tasks-list {
-  width: 90%;
-  margin-top: 10px;
+  margin: unset;
 }
 
 .date-task-description-row {
