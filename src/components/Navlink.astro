@@ -6,7 +6,17 @@ interface Navlink {
 
 const { href, title } = Astro.props
 ---
+<style>
+.nav-link-text {
+  color: white;
+  text-shadow: 1.1px 1.1px gray;
+  padding: 6px;
+  border-radius: 10px;
+  /* font-size: x-small; */
+}
 
-<a href={href}>
+</style>
+
+<a class="nav-link-text" href={href}>
   {title}
 </a>

@@ -1,11 +1,15 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+import Navbar from '@/components/Navbar.astro'
+import Notes from '@/pages/notes.astro'
+import Footer from '@/components/Footer.astro'
+
 interface Props {
 	title: string
 }
 const { title } = Astro.props
 
-import { ViewTransitions } from 'astro:transitions'
-import Navbar from '@/components/Navbar.astro'
+const isDev = import.meta.env.MODE === 'development'
 ---
 <!doctype html>
 <html lang="en">
@@ -23,16 +27,22 @@ import Navbar from '@/components/Navbar.astro'
 
 	<body>
 		<Navbar />
+		{ isDev && (
+			<Notes />
+		) }
 
 		<main>
 			<slot />
 		</main>
+
+		<Footer />
 	</body>
 </html>
 
 <style is:global>
 /* Astro boiler */
 :root {
+	/* Astro boiler CSS vars */
 	--accent: 136, 58, 234;
 	--accent-light: 224, 204, 250;
 	--accent-dark: 49, 10, 101;
@@ -42,11 +52,20 @@ import Navbar from '@/components/Navbar.astro'
 		rgb(var(--accent-light)) 30%,
 		white 60%
 	);
+	/* My CSS vars */
+	--hover-bg-color: rgba(68, 150, 213, 0.7);
 }
 html {
-	font-family: system-ui, sans-serif;
+	font-family: "Ubuntu", system-ui, sans-serif;
 	/* background: #13151a; */
-	background-size: 224px;
+	/* background-size: 224px; */
+
+	/* from Vite boiler */
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 code {
 	font-family:
@@ -61,7 +80,7 @@ code {
 }
 
 /* User Agent resets */
-body, p, h1, h4, h5, ul {
+body, p, h1, h2, h4, h5, ul {
   margin: 0;
 	padding: 0;
 }
@@ -70,9 +89,27 @@ li {
   list-style-type: none;
 }
 
-/* Global HTML Tags */
+a {
+	text-decoration: none;
+}
+
+/* Global defaults for HTML Tags */
+body {
+	min-height: 100vh;
+	/* BG */
+	background-image: url('/horizon-railway-bg-2560x1440.webp');
+	background-size: cover;
+	background-position: center;
+}
 section {
+	margin: 40px;
   padding: 20px;
+	background-color: rgba(180,180,180, 0.4);
+  outline: 1px solid rgba(220,220,220, 0.6);
+  box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
+  /* GPU intensive effect not recommended in Mobile */
+  backdrop-filter: blur(1.6px);
+  border-radius: 12px;
 
   h1, p, ul, li {
     text-align: center;

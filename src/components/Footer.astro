@@ -1,0 +1,38 @@
+---
+const currentYear = new Date().getFullYear()
+---
+<style>
+footer {
+  background-color: rgba(180,180,180,0.4);
+  outline: 1px solid rgba(220,220,220,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /*
+  position: sticky;
+  top: calc(100% - 36px);
+  left: calc(50% - (398px / 2));
+  */
+
+  h2 {
+    margin-right: 20px;
+    color: white;
+    text-shadow: 1px 1.5px rgb(115 189 255);
+  }
+}
+
+.mejor-pais-del-mundo {
+  text-shadow: 1.1px 1.1px gray;
+  margin-bottom: 50px;
+}
+</style>
+
+<footer>
+  <h2>
+    &copy; {currentYear} by Fer Candia
+  </h2>
+
+  <div class="mejor-pais-del-mundo">🇦🇷 🏆🏆🏆 🌎 ⚽ 🧉</div>
+  <div class="empty-space"></div>
+</footer>

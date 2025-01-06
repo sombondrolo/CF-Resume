@@ -6,14 +6,72 @@ const navLinks = [
   // { href: '/skills/',   title: '🛠️ Skills' },
   { href: '/work/',     title: '👔 Work Experience' },
   { href: '/projects/', title: '📚 Personal Projects' },
-  { href: '/contact/',  title: '✉️ Contact' },
-  { href: '/viewport/', title: 'Viewport' },
+  // { href: '/contact/',  title: '✉️ Contact' },
 ]
 ---
+<style>
+@media (max-width: 449px) {
+  nav { 
+    width: 300px;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 1199px) {
+  nav { 
+    width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  nav { 
+    width: 600px;
+  }
+}
+nav {
+  margin-inline: auto;
+  background-color: rgba(180,180,180, 0.4);
+  outline: 1px solid rgba(220,220,220, 0.6);
+  box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
+  /* GPU intensive effect not recommended in Mobile */
+  backdrop-filter: blur(1.6px);
+  border-radius: 0 0 12px 12px;
+}
+
+ul.nav-links {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+li.nav-link {
+  margin-block: 10px;
+  /* transition: transform 0.2s ease-in-out; */
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.4s ease, 
+    opacity 0.4s ease, 
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 3px 0;
+  /* border-radius: 10px; */
+}
+
+li.nav-link:hover {
+  transform: scale(1.2);
+  background-color: var(--hover-bg-color);
+  box-shadow: 5px 5px 7px rgb(0 0 0 / 30%);
+  /* border-radius: 10px; */
+  outline: 0.1px solid rgb(85 85 217 / 30%);
+}
+
+li.nav-link, li.nav-link:hover { border-radius: 10px; }
+</style>
+
 <nav>
-	<ul>
+	<ul class="nav-links">
 		{ navLinks.map(link => (
-      <Navlink href={link.href} title={link.title} />
+      <li class="nav-link">
+        <Navlink href={link.href} title={link.title} />
+      </li>
     )) }
 	</ul>
 </nav>

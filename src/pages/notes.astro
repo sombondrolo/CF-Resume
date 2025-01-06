@@ -3,21 +3,28 @@ const notes = [
   "Navbar: Locales language switch?",
   "Global: bg?",
   "Work: animate.css overlay text?",
-  "Footer: Agregar /viewport al footer",
 ]
 ---
 <style>
-  .notes-container {
-    margin-bottom: 20px;
-  }
-  p.notes-text {
-    color: red;
-    font-size: x-small;
-    text-align: end;
-  }
-  </style>
+.notes-container {
+  margin-bottom: 20px;
+}
+
+.viewport-link {
+  display: inline-block;
+  margin-left: calc(100% - 70px);
+}
+
+p.notes-text {
+  color: red;
+  font-size: x-small;
+  text-align: end;
+}
+</style>
 
 <div class="notes-container">
+  <a class="viewport-link" href="/viewport/">/viewport</a>
+
   { notes.map(note => 
     <p class="notes-text">{note}</p>
   )}
