@@ -1,9 +1,10 @@
 ---
 const notes = [
   "Navbar: Locales language switch?",
-  "Global: bg?",
   "Work: animate.css overlay text?",
 ]
+
+const isBeingRendered = false
 ---
 <style>
 .notes-container {
@@ -22,10 +23,12 @@ p.notes-text {
 }
 </style>
 
-<div class="notes-container">
-  <a class="viewport-link" href="/viewport/">/viewport</a>
+{ isBeingRendered && (
+  <div class="notes-container">
+    <a class="viewport-link" href="/viewport/">/viewport</a>
 
-  { notes.map(note => 
-    <p class="notes-text">{note}</p>
-  )}
-</div>
+    { notes.map(note => 
+      <p class="notes-text">{note}</p>
+    )}
+  </div>
+)}
