@@ -105,8 +105,11 @@ a {
 body {
 	/* BG */
 	background-image: url('/horizon-railway-bg-2560x1440.webp');
+	/* Fixes the <footer> position to bottom */
+	min-height: 100vh;
 	background-size: cover;
 	background-position: center;
+	/* nav, main, footer flex */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
