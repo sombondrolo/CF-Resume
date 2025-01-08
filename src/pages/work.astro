@@ -233,7 +233,25 @@ const projects = [
   },
 ]
 ---
-<style>
+<style is:global>
+/* Media queries with tag.class override (to not use !important) 1° */
+@media (max-width: 449px) {
+  ul.clients-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  li.client-list-item {
+    width: unset;
+    height: unset;
+  }
+}
+
+@media (min-width: 450px) and (max-width: 1199px) {}
+
+@media (min-width: 1200px) {}
+
 .project-list-item {
   background-color: white;
 }
