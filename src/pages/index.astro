@@ -1,49 +1,117 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 ---
-<style>
-.profile-and-description-col {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	column-gap: 20px;
-	padding: 20px;
-}
-.profile-col {
-	width: 150px;
-}
-.profile-pic-container {
-	height: 150px;
-	img {
+<style is:global>
+/* Media queries with tag.class override (to not use !important) 1° */
+@media (max-width: 449px) {
+	div.profile-pic-container {
+		width: 150px;
+    margin-inline: auto;
+    display: flex;
+	}
+
+	img.profile-pic {
 		width: 100%;
 	}
-}
-.profiles-row {
-	margin-block: 15px;
-}
-.row-name {
-	text-decoration: underline;
-	text-align: center;
-	font-size: small;
-}
-.li-gh-icons-row, .pdf-docx-icons-row {
-	width: 150px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
 
-	a {
+	div.profiles-row {
+		font-size: unset;
+		margin-block: 30px;
+	}
+
+	h4.row-name {
+		margin-bottom: 7px;
+	}
+
+	div.li-gh-icons-row, div.pdf-docx-icons-row {
+		a {
+			display: inline-flex;
+		}
+		img.icon {
+			height: 50px;
+		}
+	}
+}
+
+@media (min-width: 450px) and (max-width: 1199px) {}
+
+@media (min-width: 1200px) {
+	.profile-and-description-col {
 		display: flex;
-		height: 30px;
-		width: 30px;
+		flex-direction: row;
+		align-items: center;
+		column-gap: 20px;
+		padding: 20px;
+	}
+	.profile-col {
+		width: 150px;
+	}
+	.profile-pic-container {
+		height: 150px;
 		img {
 			width: 100%;
 		}
 	}
+	.row-name {
+		font-size: small;
+	}
+	.li-gh-icons-row, .pdf-docx-icons-row {
+		width: 150px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+
+		a {
+			display: flex;
+			height: 30px;
+			width: 30px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+	/*
+	.description-col {
+		font-size: small;
+		margin-bottom: auto;
+		margin-inline: auto;
+		font-weight: bold;
+
+		p {
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	*/
 }
+
+/* Shared between viewports */
+.profiles-row {
+	margin-block: 15px;
+}
+
+.row-name {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.li-gh-icons-row, .pdf-docx-icons-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
 .profile-pic, .icon {
 	filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
+
+.description-col {
+	margin-top: 30px;
+}
+
 .description-col {
 	font-size: small;
 	margin-bottom: auto;
@@ -54,8 +122,8 @@ import Layout from '@/layouts/Layout.astro'
 		margin-bottom: 10px;
 
 		&:last-child {
-      margin-bottom: 0;
-    }
+			margin-bottom: 0;
+		}
 	}
 }
 </style>
@@ -73,10 +141,10 @@ import Layout from '@/layouts/Layout.astro'
 				<div class="profiles-row">
 					<h4 class="row-name">Profiles Links</h4>
 					<div class="li-gh-icons-row">
-						<a href="https://www.linkedin.com/in/fer-candia-17804119a/">
+						<a href="https://www.linkedin.com/in/fer-candia-17804119a/" target="_blank">
 							<img class="icon" src="/assets/linkedin.svg" title="Go to my LinkedIn profile" alt="LinkedIn icon">
 						</a>
-						<a href="https://github.com/sombondrolo">
+						<a href="https://github.com/sombondrolo" target="_blank">
 							<img class="icon" src="/assets/github.svg" title="Go to my Github profile" alt="Github icon">
 						</a>
 					</div>

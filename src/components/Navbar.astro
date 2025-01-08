@@ -9,10 +9,21 @@ const navLinks = [
   // { href: '/contact/',  title: '✉️ Contact' },
 ]
 ---
-<style>
+<style is:global>
+/* Media queries with tag.class override (to not use !important) 1° */
 @media (max-width: 449px) {
-  nav { 
-    width: 300px;
+  nav {
+    /* width: 300px; */
+    padding-inline: 10px;
+    /* Sticky navbar */
+    position: fixed;
+    left: calc(42px / 2);
+    z-index: 1;
+    background-color: rgba(180,180,180, 0.6) !important;
+  }
+
+  section {
+    margin-top: 70px !important;
   }
 }
 
@@ -27,6 +38,8 @@ const navLinks = [
     width: 600px;
   }
 }
+
+/* Default Plain HTML tag CSS rules 2° */
 nav {
   margin-inline: auto;
   background-color: rgba(180,180,180, 0.4);
@@ -37,13 +50,27 @@ nav {
   border-radius: 0 0 12px 12px;
 }
 
-ul.nav-links {
+@media (max-width: 449px) {
+  ul.nav-links {
+    column-gap: 10px;
+  }
+}
+
+.nav-links {
   display: flex;
   justify-content: center;
   column-gap: 20px;
 }
 
-li.nav-link {
+@media (max-width: 449px) {
+  li.nav-link {
+    margin-block: 5px;
+    display: flex;
+    padding: unset;
+  }
+}
+
+.nav-link {
   margin-block: 10px;
   /* transition: transform 0.2s ease-in-out; */
   transition:
@@ -63,7 +90,9 @@ li.nav-link:hover {
   outline: 0.1px solid rgb(85 85 217 / 30%);
 }
 
-li.nav-link, li.nav-link:hover { border-radius: 10px; }
+li.nav-link, li.nav-link:hover { 
+  border-radius: 10px;
+}
 </style>
 
 <nav>

@@ -40,6 +40,7 @@ const isDev = import.meta.env.MODE === 'development'
 </html>
 
 <style is:global>
+/* It should be below HTML */
 /* Astro boiler */
 :root {
 	/* Astro boiler CSS vars */
@@ -61,11 +62,11 @@ html {
 	/* background-size: 224px; */
 
 	/* from Vite boiler */
-  line-height: 1.5;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	line-height: 1.5;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 code {
 	font-family:
@@ -81,21 +82,27 @@ code {
 
 /* User Agent resets */
 body, p, h1, h2, h4, h5, ul {
-  margin: 0;
+	margin: 0;
 	padding: 0;
 }
 
 li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 a {
 	text-decoration: none;
 }
 
+/* Media queries with tag.class override (to not use !important) 1° */
+@media (max-width: 449px) {}
+
+@media (min-width: 450px) and (max-width: 1199px) {}
+
+@media (min-width: 1200px) {}
+
 /* Global defaults for HTML Tags */
 body {
-	min-height: 100vh;
 	/* BG */
 	background-image: url('/horizon-railway-bg-2560x1440.webp');
 	background-size: cover;
@@ -103,41 +110,51 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	/* Section y-scroll case */
+}
+
+main {}
+
+section {
+	margin: 40px;
+	padding: 20px;
+	background-color: rgba(180,180,180, 0.5);
+	outline: 1px solid rgba(220,220,220, 0.6);
+	box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
+	/* GPU intensive effect not recommended in Mobile */
+	/* Also bad performance in my old PC */
+	/* backdrop-filter: blur(1.6px); */
+	border-radius: 12px;
+	h1, p, ul, li {
+		text-align: center;
+	}
+
+	h1 {
+		margin-bottom: 20px;
+		text-shadow: 1.1px 1.1px gray;
+		color: white;
+	}
+
+	ul {
+		margin-block: 20px;
+	}
+}
+
+/* Section y-scroll case */
+/* main height 140px is the footer height */
+/*
+body {
+	min-height: 100vh;
 	height: 100vh;
 	overflow-y: hidden;
 }
+
 main {
-	/* Section y-scroll case */
 	height: calc(100% - 140px);
-	/* - 140px is the footer height */
 }
+
 section {
-	margin: 40px;
-  padding: 20px;
-	background-color: rgba(180,180,180, 0.5);
-  outline: 1px solid rgba(220,220,220, 0.6);
-  box-shadow: 6px 6px 6px rgb(0 0 0 / 35%);
-  /* GPU intensive effect not recommended in Mobile */
-	/* Also bad performance in my old PC */
-  /* backdrop-filter: blur(1.6px); */
-  border-radius: 12px;
-	/* Section y-scroll case */
 	overflow-y: scroll;
 	height: inherit;
-
-  h1, p, ul, li {
-    text-align: center;
-  }
-
-  h1 {
-    margin-bottom: 20px;
-    text-shadow: 1.1px 1.1px gray;
-		color: white;
-  }
-
-  ul {
-    margin-block: 20px;
-  }
 }
+*/
 </style>
